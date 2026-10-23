@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: webhook-hub-postgres
+
+    environment:
+      POSTGRES_DB: webhookhub
+      POSTGRES_USER: webhookuser
+      POSTGRES_PASSWORD: webhookpassword
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - webhookhub-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  webhookhub-postgres-data:
